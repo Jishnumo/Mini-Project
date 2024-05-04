@@ -111,23 +111,10 @@ nav a{
 .w1 h1{
     margin-top: 30px;
     font-family: var(--mainfont);
-    font-size: 50px;
+    font-size: 44px;
     
 }
-.w1 h1 span{
-    overflow: hidden; /* Hide overflow to create typing effect */
-    border-right: 2px solid #000; /* Blinking cursor effect */
-    white-space: nowrap; /* Prevent line breaks */
-    animation: writing 2s steps(40, end);
-}
-@keyframes writing {
-    from {
-        width: 0; /* Start with zero width */
-    }
-    to {
-        width: 100%; /* Gradually increase width to full */
-    }
-}
+
 .w1 p{
     font-size: 1.01rem;
     padding:20px 0;
