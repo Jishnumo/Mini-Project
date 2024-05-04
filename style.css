@@ -103,6 +103,10 @@ nav a{
     font-family: var(--mainfont);
     font-size: 50px;
 }
+.w1 p{
+    font-size: 1.13rem;
+    padding:20px 0;
+}
 .w21{
     margin-right:20px;
 }
@@ -112,18 +116,28 @@ nav a{
 .w22 p{
     max-width: 400px;
 }
-button{
-    border:none;
-    padding:10px 15px;
-    font-size: 1.12rem;
-    border-radius: 15px;
-    background: linear-gradient(135deg, rgb(5, 88, 161), black);
-    margin:20px 0;
+button {
+    border: none;
+    background-image: linear-gradient(to right, #3a4664 0%, #1e2b4c 51%, #3a4664 100%); /* Darker colors */
+    margin: 10px 0;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
 
+button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }
-button:hover{
-    background: linear-gradient(135deg, black, rgb(5, 88, 161));
-}
+
+
 button a{
     color:white;
     text-decoration: none;
