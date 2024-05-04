@@ -80,7 +80,7 @@ nav a{
 }
 
 .main{
-    margin:50px 30px;
+    margin:10px 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -93,21 +93,23 @@ nav a{
     flex-direction: column;
 }
 .w2{
-    margin:50px 0;
+    margin:40px 0;
+    margin-top:15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    font-family: var(--primaryfont);
 }
 .w1{
     
     background-color: #60626530;
-    padding:10px;
+    padding:13px;
     border-radius: 10px;;
 }
 
 .w1 h1{
-    margin-top: 40px;
+    margin-top: 30px;
     font-family: var(--mainfont);
     font-size: 50px;
     
@@ -135,14 +137,18 @@ nav a{
     margin-right:20px;
 }
 .w21 p{
-    max-width: 400px;
+    max-width:350px;
+    font-size: smaller;
+    font-weight: lighter;
 }
 .w22 p{
-    max-width: 400px;
+    max-width:350px;
+    font-size: smaller;
+    font-weight: lighter;
 }
 button {
     border: none;
-    background-image: linear-gradient(to right, #3a4664 0%, #1e2b4c 51%, #3a4664 100%); /* Darker colors */
+    background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%); /* Darker colors */
     margin: 10px 0;
     padding: 15px 45px;
     text-align: center;
@@ -168,5 +174,9 @@ button a{
     font-weight: bold;
 }
 i{
+    color: #344757;
     font-size: 30px;
+    background: #fff;
+    padding:5px;
+    border-radius:5px;
 }
