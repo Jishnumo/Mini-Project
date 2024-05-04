@@ -103,4 +103,29 @@ nav a{
     font-family: var(--mainfont);
     font-size: 50px;
 }
+.w21{
+    margin-right:20px;
+}
+.w21 p{
+    max-width: 400px;
+}
+.w22 p{
+    max-width: 400px;
+}
+button{
+    border:none;
+    padding:10px 15px;
+    font-size: 1.12rem;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgb(5, 88, 161), black);
+    margin:20px 0;
 
+}
+button:hover{
+    background: linear-gradient(135deg, black, rgb(5, 88, 161));
+}
+button a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
