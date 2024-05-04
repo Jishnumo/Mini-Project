@@ -12,8 +12,17 @@
 nav{
     display:flex;
     justify-content: space-between;
-    margin:10px 35px;
+    align-items: center;
+    background: #dddddd;
+    height:75px;
     
+}
+.logo{
+    
+    margin:10px 35px;
+}
+nav ul{
+    margin:10px 35px;
 }
 nav li{
     display: inline;
@@ -23,6 +32,6 @@ nav li{
 nav  a{
     text-decoration: none;
     color: black;
-    margin:15px;
+    margin: 15px;
     font-family: var(--primaryfont);
 }
