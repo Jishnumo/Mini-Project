@@ -17,33 +17,37 @@ nav {
     background: rgba(255, 255, 255, 0.7); 
     height: 65px;
     width: 100%;
-    position: fixed;
+    position: fixed; 
+    top: 0; 
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px); 
     z-index: 1000; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  }
-  
+}
+
 .logo{
-    
-    margin:10px 35px;
+    margin: 10px 35px;
 }
+
 nav ul{
-    margin:10px 35px;
+    margin: 10px 35px;
 }
+
 nav li{
     display: inline;
     text-decoration: none;
     color:black;
 }
-nav  a{
+
+nav a{
     text-decoration: none;
     color: black;
     margin: 15px;
     font-family: var(--primaryfont);
 }
-/*nav ends*/
-/*home starts*/
-#home{
-    
+
+.main{
+    height: 100vh;
+    padding:30px; 
 }
+
