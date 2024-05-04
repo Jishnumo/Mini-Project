@@ -1,5 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
 *{
     padding:0;
     margin:0;
     box-sizing: border-box;
+}
+:root{
+    --mainfont:"Roboto", sans-serif;
+    --primaryfont:"Poppins", sans-serif;
+}
+nav{
+    display:flex;
+    justify-content: space-between;
+    margin:10px 35px;
+    
+}
+nav li{
+    display: inline;
+    text-decoration: none;
+    color:black;
+}
+nav  a{
+    text-decoration: none;
+    color: black;
+    margin:15px;
+    font-family: var(--primaryfont);
 }
