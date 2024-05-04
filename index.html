@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="website icon" type="png" href="asset/webicon.png">
+    <style>
+        #video-bg {
+            transition: opacity 1s ease-in-out; /* Smooth transition */
+        }
+
+        #video-bg.fade-out {
+            opacity: 0; /* Fade out the video */
+        }
+    </style>
 </head>
 <body>
     <!--navigation bar starts-->
@@ -22,7 +31,7 @@
         </ul>
     </nav>
     <section id="home">
-        <video autoplay loop muted playsinline id="video-bg">
+        <video autoplay loop muted playsinline id="video-bg" style="opacity: 0.5;">
             <source src="asset/mainbg.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -53,18 +62,28 @@
             <div class="imgm"></div>
         </div>
     </section>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var span = document.getElementById('typewriter');
-            var text = span.innerText;
-            span.innerHTML = '';
-            for (var j = 0; j < text.length; j++) {
-                var char = text.charAt(j);
-                var spanChar = document.createElement('span');
-                spanChar.textContent = char;
-                spanChar.style.animationDelay = (0.1 * j) + 's'; // Adjust the delay as needed
-                span.appendChild(spanChar);
-            }
+            var video = document.getElementById('video-bg');
+
+            // Slow down the playback rate of the video
+            video.playbackRate = 0.76;
+
+            // Fade in the video
+            video.style.opacity = '1';
+
+            // Loop the video when it ends
+            video.addEventListener('ended', function () {
+                // Fade out the video
+                video.classList.add('fade-out');
+                setTimeout(function() {
+                    // Reset video to start
+                    video.currentTime = 0;
+                    // Fade in the video
+                    video.classList.remove('fade-out');
+                }, 1000); // Wait for the fade-out transition to complete
+            });
         });
     </script>
 </body>
