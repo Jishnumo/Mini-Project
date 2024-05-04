@@ -9,6 +9,7 @@
     --mainfont:"Roboto", sans-serif;
     --primaryfont:"Poppins", sans-serif;
 }
+/*nav starts*/
 nav{
     display:flex;
     justify-content: space-between;
@@ -34,4 +35,9 @@ nav  a{
     color: black;
     margin: 15px;
     font-family: var(--primaryfont);
+}
+/*nav ends*/
+/*home starts*/
+#home{
+    
 }
