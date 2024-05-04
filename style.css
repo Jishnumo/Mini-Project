@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.189); 
+    background: rgba(255, 255, 255, 0.121); 
     height: 65px;
     width: 100%; 
     position: fixed; 
@@ -29,7 +29,13 @@ nav {
 
 
 .logo{
-    margin: 10px 35px;
+    margin: 10px 30px;
+    background-image: url(asset/logo.png);
+    height:50px;
+    width:55px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 nav ul{
