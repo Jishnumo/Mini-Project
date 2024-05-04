@@ -22,10 +22,11 @@
     </nav>
     <script src="app.js"></script>
     <section id="home">
-        <video autoplay muted id="video-bg">
-            <source src="14d0a251-c89e-43c1-94a0-ebfbfdc2c0b9 (1).mp4" type="video/mp4">
+        <video autoplay loop muted playsinline id="video-bg">
+            <source src="asset/mainbg.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        
         <div class="main">
             <div class="writings">
                 <div class="w1">
@@ -52,5 +53,58 @@
             <div class="imgm"></div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var video = document.getElementById('video-bg');
+
+    // Pause the video when it ends
+    video.addEventListener('ended', function () {
+        // Fade out the video
+        fadeOut(video, 0.5, function () {
+            // Reset video to start
+            video.currentTime = 0;
+            // Fade in the video
+            fadeIn(video, 0.5);
+        });
+    });
+
+    // Function to fade out an element
+    function fadeOut(element, duration, callback) {
+        var opacity = 1;
+        var interval = 50; // ms
+        var deltaOpacity = interval / duration;
+
+        var fadeOutInterval = setInterval(function () {
+            opacity -= deltaOpacity;
+            if (opacity <= 0) {
+                clearInterval(fadeOutInterval);
+                element.style.opacity = 0;
+                if (callback) callback();
+            } else {
+                element.style.opacity = opacity;
+            }
+        }, interval);
+    }
+
+    // Function to fade in an element
+    function fadeIn(element, duration, callback) {
+        var opacity = 0;
+        var interval = 50; // ms
+        var deltaOpacity = interval / duration;
+
+        var fadeInInterval = setInterval(function () {
+            opacity += deltaOpacity;
+            if (opacity >= 1) {
+                clearInterval(fadeInInterval);
+                element.style.opacity = 1;
+                if (callback) callback();
+            } else {
+                element.style.opacity = opacity;
+            }
+        }, interval);
+    }
+});
+
+    </script>
 </body>
 </html>
