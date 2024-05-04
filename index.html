@@ -21,7 +21,6 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-    <script src="app.js"></script>
     <section id="home">
         <video autoplay loop muted playsinline id="video-bg">
             <source src="asset/mainbg.mp4" type="video/mp4">
@@ -31,7 +30,7 @@
         <div class="main">
             <div class="writings">
                 <div class="w1">
-                    <h1>Saintgits Voice <br> <span>Recognizer</span></h1>
+                    <h1>Saintgits Voice <br> <span id="typewriter">Recognizer</span></h1>
                     <p>Speaker Recognition technology offers seamless identification, personalized user experiences, and enhanced security protocols. It leverages cutting-edge machine learning to decipher subtle nuances in speech signals and integrates diverse audio datasets for robustness and versatility. Additionally, it revolutionizes telecommunications by improving the efficiency of customer service interactions and call routing systems.</p>
                     <button><a href="">Start now</a></button>
                 </div>
@@ -56,57 +55,17 @@
     </section>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('video-bg');
-
-    // Pause the video when it ends
-    video.addEventListener('ended', function () {
-        // Fade out the video
-        fadeOut(video, 0.5, function () {
-            // Reset video to start
-            video.currentTime = 0;
-            // Fade in the video
-            fadeIn(video, 0.5);
+            var span = document.getElementById('typewriter');
+            var text = span.innerText;
+            span.innerHTML = '';
+            for (var j = 0; j < text.length; j++) {
+                var char = text.charAt(j);
+                var spanChar = document.createElement('span');
+                spanChar.textContent = char;
+                spanChar.style.animationDelay = (0.1 * j) + 's'; // Adjust the delay as needed
+                span.appendChild(spanChar);
+            }
         });
-    });
-
-    // Function to fade out an element
-    function fadeOut(element, duration, callback) {
-        var opacity = 1;
-        var interval = 50; // ms
-        var deltaOpacity = interval / duration;
-
-        var fadeOutInterval = setInterval(function () {
-            opacity -= deltaOpacity;
-            if (opacity <= 0) {
-                clearInterval(fadeOutInterval);
-                element.style.opacity = 0;
-                if (callback) callback();
-            } else {
-                element.style.opacity = opacity;
-            }
-        }, interval);
-    }
-
-    // Function to fade in an element
-    function fadeIn(element, duration, callback) {
-        var opacity = 0;
-        var interval = 50; // ms
-        var deltaOpacity = interval / duration;
-
-        var fadeInInterval = setInterval(function () {
-            opacity += deltaOpacity;
-            if (opacity >= 1) {
-                clearInterval(fadeInInterval);
-                element.style.opacity = 1;
-                if (callback) callback();
-            } else {
-                element.style.opacity = opacity;
-            }
-        }, interval);
-    }
-});
-
     </script>
-
 </body>
 </html>
