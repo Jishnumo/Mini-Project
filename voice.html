@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saintgits Voice Identifier</title>
+    <link rel="website icon" type="png" href="asset/webicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="voice.css">
+</head>
+<body>
+    </head>
+    <body>
+        <h1>Upload your audio</h1>
+    <div class="upload-container" id="upload-container">
+        <label for="file-input" id="upload-text"><i class="fa-solid fa-microphone"></i></label>
+        <input type="file" id="file-input" accept=".wav">
+    </div>
+    
+    <script>
+        const uploadContainer = document.getElementById('upload-container');
+    
+        // Function to handle file drop
+        function handleFileDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            uploadContainer.classList.remove('dragover');
+    
+            const files = event.dataTransfer.files;
+            handleFiles(files);
+        }
+    
+        // Function to handle file selection
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            handleFiles(files);
+        }
+    
+        // Function to handle uploaded files
+        function handleFiles(files) {
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type === 'audio/wav') {
+                    console.log('File uploaded:', file.name);
+                    // You can do further processing with the uploaded file here
+                } else {
+                    alert('Please upload a WAV file.');
+                }
+            }
+        }
+    
+        // Event listeners for drag and drop functionality
+        uploadContainer.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            uploadContainer.classList.add('dragover');
+        });
+    
+        uploadContainer.addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            uploadContainer.classList.remove('dragover');
+        });
+    
+        uploadContainer.addEventListener('drop', handleFileDrop);
+    
+        // Event listener for file input
+        const fileInput = document.getElementById('file-input');
+        fileInput.addEventListener('change', handleFileSelect);
+    </script>
+    
+</body>
+</html>

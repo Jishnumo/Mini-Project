@@ -186,7 +186,7 @@ i {
 li span{
     border: none;
     background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
-    padding: 8px 15px;
+    padding: 8px 3px;
     border-radius: 20px;
 }
 li span{
