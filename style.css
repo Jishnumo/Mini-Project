@@ -37,6 +37,7 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
 }
 
 nav ul {
@@ -115,12 +116,14 @@ nav a {
     margin-top: 30px;
     font-family: var(--mainfont);
     font-size: 44px;
+    pointer-events: none;
 }
 
 .w1 p {
     font-size: 1.01rem;
     padding: 20px 0;
     font-family: var(--primaryfont);
+    pointer-events: none;
 }
 
 .w21 {
@@ -131,12 +134,17 @@ nav a {
     max-width: 350px;
     font-size: smaller;
     font-weight: lighter;
+    pointer-events: none;
+}
+.w2 h1{
+    pointer-events: none;
 }
 
 .w22 p {
     max-width: 350px;
     font-size: smaller;
     font-weight: lighter;
+    pointer-events: none;
 }
 
 button {
