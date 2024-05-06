@@ -160,6 +160,7 @@ button {
     box-shadow: 0 0 20px #eeeeee1b;
     border-radius: 10px;
     display: block;
+    cursor: pointer;
 }
 
 button:hover {
