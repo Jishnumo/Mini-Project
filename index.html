@@ -9,11 +9,11 @@
     <link rel="website icon" type="png" href="asset/webicon.png">
     <style>
         #video-bg {
-            transition: opacity 1s ease-in-out; /* Smooth transition */
+            transition: opacity 1s ease-in-out;
         }
 
         #video-bg.fade-out {
-            opacity: 0; /* Fade out the video */
+            opacity: 0; 
         }
     </style>
 </head>
@@ -66,23 +66,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var video = document.getElementById('video-bg');
-
-            // Slow down the playback rate of the video
             video.playbackRate = 0.76;
-
-            // Fade in the video
             video.style.opacity = '1';
-
-            // Loop the video when it ends
             video.addEventListener('ended', function () {
-                // Fade out the video
                 video.classList.add('fade-out');
                 setTimeout(function() {
-                    // Reset video to start
                     video.currentTime = 0;
-                    // Fade in the video
                     video.classList.remove('fade-out');
-                }, 1000); // Wait for the fade-out transition to complete
+                }, 1000); 
             });
         });
     </script>

@@ -142,7 +142,6 @@ nav a {
 button {
     border: none;
     background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
-    /* Darker colors */
     margin: 10px 0;
     padding: 15px 45px;
     text-align: center;
