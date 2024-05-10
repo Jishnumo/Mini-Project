@@ -3,72 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saintgits Voice Identifier</title>
-    <link rel="website icon" type="png" href="asset/webicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="voice.css">
+    <title>Upload Your Voice</title>
+    <link rel="website icon" type="png" href="../static/asset/webicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainfont: "Roboto", sans-serif;
+    --primaryfont: "Poppins", sans-serif;
+}
+body {
+    font-family: var(--primaryfont);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(115deg, #12063be7, #09555ce8);
+}
+button{
+    padding:13px 25px;
+    font-size: 1.02em;
+    background-image: linear-gradient(to right, #1c3678 0%, #543e78 51%, #593a64 100%);
+    border-radius: 10px;
+    border:none;
+    color: white;
+    font-weight: bold;
+    margin-top:20px;
+}
+        .m{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height:300px;
+    width:300px;
+    border: 2px dashed #ffffff;
+    border-radius: 10px;
+    background-color: #2b292965;
+        }
+        h1{
+    margin-bottom: 20px;
+    color: wheat;
+}
+#result{
+    color:white;
+}
+    </style>
 </head>
 <body>
-    </head>
-    <body>
-        <h1>Upload your audio</h1>
-    <div class="upload-container" id="upload-container">
-        <label for="file-input" id="upload-text"><i class="fa-solid fa-microphone"></i></label>
-        <input type="file" id="file-input" accept=".wav">
+    <h1>Voice Recognition</h1>
+    <div class="m">
+    <form id="uploadForm" action="/identify_speaker" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*" required>
+        <br>
     </div>
+        <button type="submit">Upload</button>
     
+    </form>
+
+    <div id="result"></div>
+
+
     <script>
-        const uploadContainer = document.getElementById('upload-container');
-    
-        // Function to handle file drop
-        function handleFileDrop(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            
-            uploadContainer.classList.remove('dragover');
-    
-            const files = event.dataTransfer.files;
-            handleFiles(files);
-        }
-    
-        // Function to handle file selection
-        function handleFileSelect(event) {
-            const files = event.target.files;
-            handleFiles(files);
-        }
-    
-        // Function to handle uploaded files
-        function handleFiles(files) {
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                if (file.type === 'audio/wav') {
-                    console.log('File uploaded:', file.name);
-                    // You can do further processing with the uploaded file here
-                } else {
-                    alert('Please upload a WAV file.');
-                }
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const formData = new FormData(this); // Create FormData object to send file
+            const response = await fetch('/identify_speaker', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('result').innerHTML = `
+                    <p>Speaker ID: ${data.speaker_id}</p>
+                    <p>Speaker Name: ${data.speaker_name}</p>
+                    <p>Probability: ${data.probability}</p>
+                `;
+            } else {
+                document.getElementById('result').innerHTML = '<p>Error occurred!</p>';
             }
-        }
-    
-        // Event listeners for drag and drop functionality
-        uploadContainer.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            uploadContainer.classList.add('dragover');
         });
-    
-        uploadContainer.addEventListener('dragleave', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            uploadContainer.classList.remove('dragover');
-        });
-    
-        uploadContainer.addEventListener('drop', handleFileDrop);
-    
-        // Event listener for file input
-        const fileInput = document.getElementById('file-input');
-        fileInput.addEventListener('change', handleFileSelect);
     </script>
-    
 </body>
 </html>
