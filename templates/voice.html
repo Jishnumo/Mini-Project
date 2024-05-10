@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Voice</title>
+    <link rel="website icon" type="png" href="../static/asset/webicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainfont: "Roboto", sans-serif;
+    --primaryfont: "Poppins", sans-serif;
+}
+body {
+    font-family: var(--primaryfont);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(115deg, #12063be7, #09555ce8);
+}
+button{
+    padding:13px 25px;
+    font-size: 1.02em;
+    background-image: linear-gradient(to right, #1c3678 0%, #543e78 51%, #593a64 100%);
+    border-radius: 10px;
+    border:none;
+    color: white;
+    font-weight: bold;
+    margin-top:20px;
+}
+        .m{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height:300px;
+    width:300px;
+    border: 2px dashed #ffffff;
+    border-radius: 10px;
+    background-color: #2b292965;
+        }
+        h1{
+    margin-bottom: 20px;
+    color: wheat;
+}
+#result{
+    color:white;
+}
+    </style>
+</head>
+<body>
+    <h1>Voice Recognition</h1>
+    <div class="m">
+    <form id="uploadForm" action="/identify_speaker" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*" required>
+        <br>
+    </div>
+        <button type="submit">Upload</button>
+    
+    </form>
+
+    <div id="result"></div>
+
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const formData = new FormData(this); // Create FormData object to send file
+            const response = await fetch('/identify_speaker', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('result').innerHTML = `
+                    <p>Speaker ID: ${data.speaker_id}</p>
+                    <p>Speaker Name: ${data.speaker_name}</p>
+                    <p>Probability: ${data.probability}</p>
+                `;
+            } else {
+                document.getElementById('result').innerHTML = '<p>Error occurred!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
