@@ -1,6 +1,6 @@
 # Required Libraries
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
@@ -94,6 +94,34 @@ def identify_speaker():
     speaker_name = speaker_names.get(speaker_id, "Unknown")  # Get speaker name from dictionary
 
     return jsonify({'speaker_id': speaker_id, 'speaker_name': speaker_name, 'probability': probability})
+
+# Define Route for Downloading Speaker's Resume
+@app.route('/download_resume/<int:speaker_id>')
+def download_resume(speaker_id):
+    # Replace 'path_to_resumes' with the directory containing all resumes
+    resumes_dir = 'C:/Users/jishn/Desktop/github/Mini Project/static/resume'
+
+    # Define a dictionary mapping speaker IDs to their respective resume filenames
+    resume_filenames = {
+        0: 'Resume-Jishnu.pdf',
+        1: 'JOEGISTO RESUME.pdf',
+        2: 'resumenk.pdf',
+        3: 'resume_julia_gillard.pdf',
+        4: 'resume_margaret_tarcher.pdf',
+        5: 'resume_nelson_mandela.pdf',
+        6: 'resume_others.pdf',
+        7: 'resume_background_noise.pdf',
+        # Add more entries for other speakers as needed
+    }
+
+    # Get the filename of the resume for the specified speaker ID
+    resume_filename = resume_filenames.get(speaker_id)
+
+    if resume_filename:
+        resume_path = os.path.join(resumes_dir, resume_filename)
+        return send_file(resume_path, as_attachment=True)
+    else:
+        return jsonify({'error': 'Resume not found for the specified speaker ID'})
 
 # Run Flask App
 if __name__ == '__main__':
