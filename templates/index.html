@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="website icon" type="png" href="../static/asset/webicon.png">
     <style>
+       
 
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
@@ -233,7 +234,7 @@ li span a{
         </ul>
     </nav>
     <section id="home">
-        <video autoplay loop muted playsinline id="video-bg" style="opacity: 0.5;">
+        <video autoplay loop muted playsinline id="video-bg">
             <source src="../static/asset/mainbg.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -266,6 +267,7 @@ li span a{
         </div>
     </section>
 
+    
     <script>
         document.getElementById('startButton').addEventListener('click', function() {
             window.location.href = '/voice'; // Redirect to /voice on button click
