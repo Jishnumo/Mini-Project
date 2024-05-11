@@ -98,27 +98,21 @@ def identify_speaker():
 # Define Route for Downloading Speaker's Resume
 @app.route('/download_resume/<int:speaker_id>')
 def download_resume(speaker_id):
-    # Replace 'path_to_resumes' with the directory containing all resumes
-    resumes_dir = 'C:/Users/jishn/Desktop/github/Mini Project/static/resume'
-
-    # Define a dictionary mapping speaker IDs to their respective resume filenames
-    resume_filenames = {
-        0: 'Resume-Jishnu.pdf',
-        1: 'JOEGISTO RESUME.pdf',
-        2: 'resumenk.pdf',
-        3: 'resume_julia_gillard.pdf',
-        4: 'resume_margaret_tarcher.pdf',
-        5: 'resume_nelson_mandela.pdf',
-        6: 'resume_others.pdf',
-        7: 'resume_background_noise.pdf',
+    # Define file locations for each resume
+    resume_files = {
+        0: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/Resume-Jishnu.pdf',
+        1: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/JOEGISTO RESUME.pdf',
+        2: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resumenk.pdf',
+        3: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_julia_gillard.pdf',
+        4: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_margaret_tarcher.pdf',
+        5: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_nelson_mandela.pdf',
+        6: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_others.pdf',
+        7: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_background_noise.pdf',
         # Add more entries for other speakers as needed
     }
 
-    # Get the filename of the resume for the specified speaker ID
-    resume_filename = resume_filenames.get(speaker_id)
-
-    if resume_filename:
-        resume_path = os.path.join(resumes_dir, resume_filename)
+    resume_path = resume_files.get(speaker_id)
+    if resume_path:
         return send_file(resume_path, as_attachment=True)
     else:
         return jsonify({'error': 'Resume not found for the specified speaker ID'})
