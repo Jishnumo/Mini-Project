@@ -28,7 +28,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(115deg, #12063be7, #09555ce8);
 }
 button{
     padding:13px 25px;
@@ -52,7 +51,16 @@ button{
         }
         h1{
     margin-bottom: 20px;
-    color: wheat;
+    color: #2c2f35;
+}
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 #result{
     color:white;
@@ -60,7 +68,11 @@ button{
     </style>
 </head>
 <body>
-    <h1>Voice Recognition</h1>
+    <video autoplay loop muted playsinline id="video-bg">
+        <source src="../static/asset/primaryvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1>Upload your voice</h1>
     <div class="m">
     <form id="uploadForm" action="/identify_speaker" method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept="audio/*" required>
@@ -95,6 +107,9 @@ button{
                 document.getElementById('result').innerHTML = '<p>Error occurred!</p>';
             }
         });
+    </script>
+    <script>
+        alert("Instructions:\n\nUpload the file in WAV format.\nThere is no 100% prediction, fill yourself accordingly.");
     </script>
 </body>
 </html>
