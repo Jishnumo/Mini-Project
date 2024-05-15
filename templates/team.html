@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saintgits Voice Identifier</title>
+    <link rel="website icon" type="png" href="../static/asset/webicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainfont: "Roboto", sans-serif;
+    --primaryfont: "Poppins", sans-serif;
+}
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+.c1{
+    height:400px;
+    width:280px;
+    background-color: rgba(255, 255, 255, 0.553);
+    box-shadow: 0 0 20px rgba(22, 22, 22, 0.236); /* Soft glow effect */
+    margin-left:60px;
+    border:1.5px solid white ;
+    border-radius: 20px;
+}
+.c2{
+    height:400px;
+    width:280px;
+    background-color: rgba(255, 255, 255, 0.553);
+    box-shadow: 0 0 20px rgba(22, 22, 22, 0.236); /* Soft glow effect */
+    margin-left:60px;
+    border:1.5px solid white ;
+    border-radius: 20px;
+}
+.c3{
+    height:400px;
+    width:280px;
+    background-color: rgba(255, 255, 255, 0.553);
+    box-shadow: 1px 1px 1px rgba(22, 22, 22, 0.236);
+    border:1.5px solid white ; /* Soft glow effect */
+    margin-left:60px;
+    border-radius: 20px;
+}
+
+.cards{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    }
+    .img{
+        height:180px;
+        width:180px;
+        border-radius:100%;
+        margin-left:51px;
+        margin-top:50px;
+    }
+    .img1{
+        background-image: url("../static/asset/Joe.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+    .img2{
+        background-image: url("../static/asset/Jishnu.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+    .img3{
+        background-image: url("../static/asset/Nk.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+    h1{
+        font-family: var(--primaryfont);
+        color:white;
+        font-size: 2rem;
+        text-align: center;
+        margin-top:20px;
+        text-shadow: 2.5px 2.5px 4px #3b3b40c0;
+    }
+    .fa-brands{
+        font-size:1.5rem;
+        padding:10px 15px;
+        color: rgb(91, 89, 89);
+    }
+    .fa-brands:hover{
+        color:black;
+    }
+    .ii{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <video autoplay loop muted playsinline id="video-bg">
+        <source src="../static/asset/primaryvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<body>
+    <div class="cards">
+        <div class="c1">
+            <div class="img1 img">
+                
+            </div>
+            <h1>Joe Gisto</h1>
+            <div class="ii">
+            <i class="fa-brands fa-instagram"></i><i class="fa-brands fa-github"></i><i class="fa-brands fa-x-twitter"></i></div>
+        </div>
+        <div class="c2">
+            <div class="img2 img"></div>
+            <h1>Jishnu Mohan</h1>
+            <div class="ii">
+            <i class="fa-brands fa-instagram"></i><i class="fa-brands fa-github"></i><i class="fa-brands fa-x-twitter"></i></div>
+        </div>
+        <div class="c3">
+            <div class="img3 img"></div>
+            <h1>Navaneeth K</h1>
+            <div class="ii">
+            <i class="fa-brands fa-instagram"></i><i class="fa-brands fa-github"></i><i class="fa-brands fa-x-twitter"></i></div>
+        </div>
+    </div>
+</body>
+</html>
