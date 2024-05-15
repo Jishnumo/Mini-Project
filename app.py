@@ -70,6 +70,12 @@ speaker_names = {
 @app.route('/')
 def home():
     return render_template('index.html')
+@app.route('/team')
+def team():
+    return render_template('team.html')
+@app.route('/feature')
+def feature():
+    return render_template('feature.html')
 
 # Define Route for Voice Recognition Page
 @app.route('/voice')
