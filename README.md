@@ -1,1 +1,1 @@
-This is our mini-project
+This is our mini-project.
