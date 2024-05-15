@@ -56,12 +56,12 @@ model.fit(X_train.reshape(X_train.shape[0], -1), y_train)  # Reshape X_train to 
 
 # Define Speaker Names
 speaker_names = {
-    0: "Benjamin Netanyau",
-    1: "Jens Stoltenberg",
-    2: "Jishnu Mohan",
-    3: "Julia Gillard",
-    4: "Margaret Tarcher",
-    5: "Nelson Mandela",
+    0: "Jishnu Mohan",
+    1: "Joe Gisto",
+    2: "Jishnu",
+    3: "Navaneeth Krishna",
+    4: "Tilin Chacko",
+    5: "Naveen U",
     6: "Others",
     7: "Some kind of background noice",
 }
