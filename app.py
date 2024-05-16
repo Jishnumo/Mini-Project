@@ -81,6 +81,22 @@ def feature():
 @app.route('/voice')
 def voice():
     return render_template('voice.html')
+@app.route('/jishnu-mohan')
+def jishnu():
+    return render_template('jishnu-mohan.html')
+@app.route('/joe-gisto')
+def joe():
+    return render_template('joe-gisto.html')
+@app.route('/navaneeth-krishna')
+def navaneeth():
+    return render_template('navaneeth-krishna.html')
+@app.route('/tilin-chacko')
+def tilin():
+    return render_template('tilin-chacko.html')
+@app.route('/naveen-u')
+def naveen():
+    return render_template('naveen-u.html')
+
 
 # Define Route for Speaker Identification
 @app.route('/identify_speaker', methods=['POST'])
@@ -102,26 +118,26 @@ def identify_speaker():
     return jsonify({'speaker_id': speaker_id, 'speaker_name': speaker_name, 'probability': probability})
 
 # Define Route for Downloading Speaker's Resume
-@app.route('/download_resume/<int:speaker_id>')
-def download_resume(speaker_id):
+@app.route('/download_resume/<string:speaker_name>')
+def download_resume(speaker_name):
     # Define file locations for each resume
     resume_files = {
-        0: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/Resume-Jishnu.pdf',
-        1: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/JOEGISTO RESUME.pdf',
-        2: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resumenk.pdf',
-        3: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_julia_gillard.pdf',
-        4: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_margaret_tarcher.pdf',
-        5: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_nelson_mandela.pdf',
-        6: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_others.pdf',
-        7: 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_background_noise.pdf',
+        "jishnu-mohan": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/Resume-Jishnu.pdf',
+        "joe-gisto": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/JOEGISTO RESUME.pdf',
+        "jishnu": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resumenk.pdf',
+        "navaneeth-krishna": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_julia_gillard.pdf',
+        "tilin-chacko": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_margaret_tarcher.pdf',
+        "naveen-u": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_nelson_mandela.pdf',
+        "others": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_others.pdf',
+        "some-kind-of-background-noice": 'C:/Users/jishn/Desktop/github/Mini Project/static/resume/resume_background_noise.pdf',
         # Add more entries for other speakers as needed
     }
 
-    resume_path = resume_files.get(speaker_id)
+    resume_path = resume_files.get(speaker_name)
     if resume_path:
         return send_file(resume_path, as_attachment=True)
     else:
-        return jsonify({'error': 'Resume not found for the specified speaker ID'})
+        return jsonify({'error': 'Resume not found for the specified speaker name'})
 
 # Run Flask App
 if __name__ == '__main__':

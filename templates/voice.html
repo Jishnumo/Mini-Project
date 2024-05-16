@@ -7,67 +7,67 @@
     <link rel="website icon" type="png" href="../static/asset/webicon.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-    --mainfont: "Roboto", sans-serif;
-    --primaryfont: "Poppins", sans-serif;
-}
-body {
-    font-family: var(--primaryfont);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-button{
-    padding:13px 25px;
-    font-size: 1.02em;
-    background-image: linear-gradient(to right, #1c3678 0%, #543e78 51%, #593a64 100%);
-    border-radius: 10px;
-    border:none;
-    color: white;
-    font-weight: bold;
-    margin-top:20px;
-}
+        :root {
+            --mainfont: "Roboto", sans-serif;
+            --primaryfont: "Poppins", sans-serif;
+        }
+        body {
+            font-family: var(--primaryfont);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            padding:13px 25px;
+            font-size: 1.02em;
+            background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
+            border-radius: 10px;
+            border:none;
+            color: white;
+            font-weight: bold;
+            margin-top:20px;
+        }
         .m{
             display: flex;
-    justify-content: center;
-    align-items: center;
-    height:300px;
-    width:300px;
-    border: 2px dashed #ffffff;
-    border-radius: 10px;
-    background-color: #2b292965;
+            justify-content: center;
+            align-items: center;
+            height:300px;
+            width:300px;
+            border: 2px dashed #ffffff;
+            border-radius: 10px;
+            background-color: #2b292965;
         }
         h1{
-    margin-bottom: 20px;
-    color: #2c2f35;
-}
-#video-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-#result{
-    color:white;
-    background-color: #2a2a2b46;
-    border-radius:10px;
-    font-weight: bold;
-}
+            margin-bottom: 20px;
+            color: #2c2f35;
+        }
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #result{
+            color:white;
+            background-color: #2a2a2b46;
+            border-radius:10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +104,7 @@ button{
                     <p>Speaker ID: ${data.speaker_id}</p>
                     <p>Speaker Name: ${data.speaker_name}</p>
                     <p>Probability: ${data.probability}</p>
-                    <a href="/download_resume">Download Resume</a>
+                    <button onclick="window.location.href='/${data.speaker_name.toLowerCase().replace(' ', '-')}'">View Details</button>
                 `;
             } else {
                 document.getElementById('result').innerHTML = '<p>Error occurred!</p>';
