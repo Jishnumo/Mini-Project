@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saintgits Voice Identifier</title>
+    <link rel="website icon" type="png" href="../static/asset/webicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainfont: "Roboto", sans-serif;
+    --primaryfont: "Poppins", sans-serif;
+}
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+.main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.c1{
+    height:400px;
+    width:280px;
+    background-color: rgba(255, 255, 255, 0.553);
+    box-shadow: 0 0 20px rgba(22, 22, 22, 0.236); 
+    border:1.5px solid white ;
+    border-radius: 20px;
+}
+.c2{
+    font-family: var(--primaryfont);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:400px;
+    width:600px;
+    background-color: rgba(255, 255, 255, 0.553);
+    box-shadow: 0 0 20px rgba(22, 22, 22, 0.236); 
+    border:1.5px solid white ;
+    border-radius: 20px;
+    margin-left:70px;
+
+}
+.c21{
+    font-weight:900;
+}
+.c22{
+    margin-left:40px;
+    font-weight: 400;
+}
+.img{
+        height:180px;
+        width:180px;
+        border-radius:100%;
+        margin-left:49px;
+        margin-top:50px;
+    }
+    .img1{
+        background-image: url("../static/asset/Joe.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+    .h{
+        font-family: var(--primaryfont);
+        color:white;
+        font-size: 2rem;
+        text-align: center;
+        margin-top:20px;
+        text-shadow: 2.5px 2.5px 4px #3b3b40c0;
+    }
+    .fa-brands{
+        font-size:1.5rem;
+        padding:10px 15px;
+        color: rgb(91, 89, 89);
+    }
+    .fa-brands:hover{
+        color:black;
+    }
+    .ii{
+        text-align: center;
+    }
+    button{
+            padding:8px 10px;
+            font-size: 1rem;
+            background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
+            border-radius: 10px;
+            border:none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+       
+    }
+</style>
+<body>
+<video autoplay loop muted playsinline id="video-bg">
+    <source src="../static/asset/primaryvideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<div class="main">
+    <div class="c1">
+        <div class="img1 img"></div>
+        <h1 class="h">Joe Gisto</h1>
+        <div class="ii">
+            <a href="https://www.instagram.com/alien_mindd/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/Jishnumo"><i class="fa-brands fa-github"></i></a>
+            <a href="https://twitter.com/JishnuMoha9486"><i class="fa-brands fa-x-twitter"></i></div></a>
+    </div>
+    <div class="c2">
+        <div class="c21">
+        <p>Name:</p>
+        <p>University No:</p>
+        <p>Phone Number:</p>
+        <p>Guardian:</p>
+        <p>Gender:</p>
+        <p>Age:</p>
+        <p>CGPA:</p>
+        <p>Address:</p><br><br>
+        <p>Pincode:</p>
+        
+        </div>
+
+        <div class="c22">
+            <p>Joe Gisto</p>
+        <p>MGP21UCS078</p>
+        <p>9562832591</p>
+        <p>Gisto Joseph</p>
+        <p>Male</p>
+        <p>20</p>
+        <p>7.5</p>
+        <p>Chennoth Gisto villa(H) <br>Varanad(P.o) <br>Cherthala</p>
+        <p>688527</p>
+        <button id="downloadButton">Download</button>
+        </div>
+    </div>
+</div>
+<script>
+    // Function to handle the download of the resume file
+    document.getElementById("downloadButton").addEventListener("click", function() {
+        // URL of the resume file
+        var resumeUrl = "../static/resume/Joe-resume.pdf";
+        
+        // Create an <a> element
+        var link = document.createElement("a");
+        
+        // Set the href attribute with the resume URL
+        link.href = resumeUrl;
+        
+        // Set the download attribute with the resume file name
+        link.download = "Joe-resume.pdf";
+        
+        // Append the <a> element to the document body
+        document.body.appendChild(link);
+        
+        // Simulate a click on the <a> element to trigger the download
+        link.click();
+        
+        // Remove the <a> element from the document body
+        document.body.removeChild(link);
+    });
+</script>
+</body>
+</html>
