@@ -74,7 +74,7 @@
         margin-top:50px;
     }
     .img1{
-        background-image: url("../static/asset/Jishnu.jpeg");
+        background-image: url("../static/asset/naveen.PNG");
         background-position: center;
         background-size: cover;
     }
@@ -96,6 +96,17 @@
     }
     .ii{
         text-align: center;
+    }
+    button{
+            padding:8px 10px;
+            font-size: 1rem;
+            background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
+            border-radius: 10px;
+            border:none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+       
     }
 </style>
 <body>
@@ -123,6 +134,7 @@
         <p>CGPA:</p>
         <p>Address:</p><br><br>
         <p>Pincode:</p>
+        <p>Resume:</p>
         
         </div>
 
@@ -136,8 +148,34 @@
         <p>6.78</p>
         <p>Nandhanam(H) <br>Mavelikara(P.o) <br>Allapuzha</p>
         <p>690107</p>
+        <button id="downloadButton">Download</button>
         </div>
     </div>
 </div>
+<script>
+    // Function to handle the download of the resume file
+    document.getElementById("downloadButton").addEventListener("click", function() {
+        // URL of the resume file
+        var resumeUrl = "../static/resume/Resume-naveen.pdf";
+        
+        // Create an <a> element
+        var link = document.createElement("a");
+        
+        // Set the href attribute with the resume URL
+        link.href = resumeUrl;
+        
+        // Set the download attribute with the resume file name
+        link.download = "Resume-naveen.pdf";
+        
+        // Append the <a> element to the document body
+        document.body.appendChild(link);
+        
+        // Simulate a click on the <a> element to trigger the download
+        link.click();
+        
+        // Remove the <a> element from the document body
+        document.body.removeChild(link);
+    });
+</script>
 </body>
 </html>

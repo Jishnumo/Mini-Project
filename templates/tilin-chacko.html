@@ -74,7 +74,7 @@
         margin-top:50px;
     }
     .img1{
-        background-image: url("../static/asset/Jishnu.jpeg");
+        background-image: url("../static/asset/titlin.JPG");
         background-position: center;
         background-size: cover;
     }
@@ -97,6 +97,17 @@
     .ii{
         text-align: center;
     }
+    button{
+            padding:8px 10px;
+            font-size: 1rem;
+            background-image: linear-gradient(to right, #3a4664 0%, #344757 51%, #3a4664 100%);
+            border-radius: 10px;
+            border:none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+       
+    }
 </style>
 <body>
 <video autoplay loop muted playsinline id="video-bg">
@@ -106,7 +117,7 @@
 <div class="main">
     <div class="c1">
         <div class="img1 img"></div>
-        <h1 class="h">Jishnu Mohan</h1>
+        <h1 class="h">Tilin Chacko</h1>
         <div class="ii">
             <a href="https://www.instagram.com/alien_mindd/"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://github.com/Jishnumo"><i class="fa-brands fa-github"></i></a>
@@ -123,21 +134,48 @@
         <p>CGPA:</p>
         <p>Address:</p><br><br>
         <p>Pincode:</p>
+        <p>Resume:</p>
         
         </div>
 
         <div class="c22">
-            <p>Jishnu Mohan</p>
-        <p>MGP21UCS073</p>
-        <p>8078450614</p>
-        <p>Mohanan N V</p>
+        <p>Tilin Chacko</p>
+        <p>MGP21UCS140</p>
+        <p>9207864213</p>
+        <p>Chacko Skariah</p>
         <p>Male</p>
-        <p>20</p>
-        <p>8.0</p>
-        <p>Paradesiparambil(H) <br>Thrikothamangalam(P.o) <br>Kottayam</p>
-        <p>686011</p>
+        <p>21</p>
+        <p>7.0</p>
+        <p>Thamarathu(H) <br>Chingavanam(P.o) <br>Kottayam</p>
+        <p>686012</p>
+        <button id="downloadButton">Download</button>
         </div>
     </div>
 </div>
+<script>
+    // Function to handle the download of the resume file
+    document.getElementById("downloadButton").addEventListener("click", function() {
+        // URL of the resume file
+        var resumeUrl = "../static/resume/Resume-tilin.pdf";
+        
+        // Create an <a> element
+        var link = document.createElement("a");
+        
+        // Set the href attribute with the resume URL
+        link.href = resumeUrl;
+        
+        // Set the download attribute with the resume file name
+        link.download = "Resume-tilin.pdf";
+        
+        // Append the <a> element to the document body
+        document.body.appendChild(link);
+        
+        // Simulate a click on the <a> element to trigger the download
+        link.click();
+        
+        // Remove the <a> element from the document body
+        document.body.removeChild(link);
+    });
+</script>
 </body>
 </html>
