@@ -62,7 +62,7 @@ speaker_names = {
     4: "Tilin Chacko",
     5: "Naveen U",
     6: "Others",
-    7: "Some kind of background noice",
+    7: "Some kind of background noise",
     8: "TC",
 }
 
@@ -70,9 +70,11 @@ speaker_names = {
 @app.route('/')
 def home():
     return render_template('index.html')
+
 @app.route('/team')
 def team():
     return render_template('team.html')
+
 @app.route('/feature')
 def feature():
     return render_template('feature.html')
@@ -81,22 +83,26 @@ def feature():
 @app.route('/voice')
 def voice():
     return render_template('voice.html')
+
 @app.route('/jishnu-mohan')
 def jishnu():
     return render_template('jishnu-mohan.html')
+
 @app.route('/joe-gisto')
 def joe():
     return render_template('joe-gisto.html')
+
 @app.route('/navaneeth-krishna')
 def navaneeth():
     return render_template('navaneeth-krishna.html')
+
 @app.route('/tilin-chacko')
 def tilin():
     return render_template('tilin-chacko.html')
+
 @app.route('/naveen-u')
 def naveen():
     return render_template('naveen-u.html')
-
 
 # Define Route for Speaker Identification
 @app.route('/identify_speaker', methods=['POST'])
@@ -115,7 +121,10 @@ def identify_speaker():
     probability = float(probability)  # Convert to float
     speaker_name = speaker_names.get(speaker_id, "Unknown")  # Get speaker name from dictionary
 
-    return jsonify({'speaker_id': speaker_id, 'speaker_name': speaker_name, 'probability': probability})
+    if probability > 0.40:
+        return jsonify({'speaker_id': speaker_id, 'speaker_name': speaker_name, 'probability': probability})
+    else:
+        return jsonify({'error': 'Probability is too low'})
 
 # Define Route for Downloading Speaker's Resume
 @app.route('/download_resume/<string:speaker_name>')
