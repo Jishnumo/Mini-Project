@@ -1,4 +1,3 @@
-# Required Libraries
 import numpy as np
 from flask import Flask, request, jsonify, render_template, send_file
 from sklearn.model_selection import train_test_split
