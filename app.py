@@ -63,7 +63,6 @@ speaker_names = {
     5: "Naveen U",
     6: "Others",
     7: "Some kind of background noice",
-    8: "TC",
 }
 
 # Define Route for Home Page
